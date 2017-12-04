@@ -1,5 +1,13 @@
-import Resolver from 'ember-resolver';
+import Resolver from 'ember-resolver/resolvers/glimmer-wrapper';
+import buildResolverConfig from 'ember-resolver/ember-config';
+import config from '../config/environment';
 
-// TODO: this needs some work
+let moduleConfig = buildResolverConfig(config.modulePrefix);
+/*
+ * If your application has custom types and collections, modify moduleConfig here
+ * to add support for them.
+ */
 
-export default Resolver;
+export default Resolver.extend({
+  config: moduleConfig
+});
